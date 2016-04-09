@@ -73,7 +73,7 @@ func InitLog(lsettings LogSettings) error {
 }
 
 // WriteInfo(info_message string) - write info message to success log file.
-func WriteInfo(info_message string) {
+func (l LogSettings) WriteInfo(info_message string) {
 	flog, err := os.OpenFile(log_settings.File_path+log_settings.Success_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
 		return
@@ -86,7 +86,7 @@ func WriteInfo(info_message string) {
 }
 
 // WriteErr(err_message error) - write err message to error log file.
-func WriteErr(err_message error) {
+func (l LogSettings) WriteErr(err_message error) {
 	elog, err := os.OpenFile(log_settings.File_path+log_settings.Error_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
 		return
@@ -99,7 +99,7 @@ func WriteErr(err_message error) {
 }
 
 // WriteWarn(warn_message string) - write warning message to error log file.
-func WriteWarn(warn_message string) {
+func (l LogSettings) WriteWarn(warn_message string) {
 	wlog, err := os.OpenFile(log_settings.File_path+log_settings.Error_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
 		return

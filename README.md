@@ -32,7 +32,7 @@ func init() {
 Use it:
 ```
 func main() {
-  ivylog.WriteWarn("1 is less than 2")
+  mylog.WriteWarn("1 is less than 2")
 }
 ```
 
