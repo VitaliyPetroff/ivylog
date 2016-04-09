@@ -2,9 +2,7 @@ package ivylog
 
 import (
 	"errors"
-	"fmt"
 	"os"
-	//"path/filepath"
 	"time"
 )
 
