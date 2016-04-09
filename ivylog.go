@@ -1,3 +1,4 @@
+// Another interpretation of working with logging in golang.
 package ivylog
 
 import (
@@ -21,9 +22,8 @@ type LogSettings struct {
 
 var log_settings LogSettings
 
-// InitLog(lsettings LogSettings) - initialization log settings.
-// - Check or create file dir.
-// - Check or create files.
+//	Initialization log settings.
+//	Check or create file dir, check or create files.
 func InitLog(lsettings LogSettings) error {
 	var err error
 
@@ -44,7 +44,6 @@ func InitLog(lsettings LogSettings) error {
 		}
 	}
 
-	// may we use log_settings.Success_file_name == log_settings.Error_file_name == ""???
 	if (log_settings.Success_file_name == log_settings.Error_file_name) && log_settings.Success_file_name == "" {
 		return errors.New("Log file name not set")
 	}
@@ -72,7 +71,7 @@ func InitLog(lsettings LogSettings) error {
 	return nil
 }
 
-// WriteInfo(info_message string) - write info message to success log file.
+// Write info message to success log file.
 func (l LogSettings) WriteInfo(info_message string) {
 	flog, err := os.OpenFile(log_settings.File_path+log_settings.Success_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
@@ -85,7 +84,7 @@ func (l LogSettings) WriteInfo(info_message string) {
 	flog.WriteString(log_message)
 }
 
-// WriteErr(err_message error) - write err message to error log file.
+// Write err message to error log file.
 func (l LogSettings) WriteErr(err_message error) {
 	elog, err := os.OpenFile(log_settings.File_path+log_settings.Error_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
@@ -98,7 +97,7 @@ func (l LogSettings) WriteErr(err_message error) {
 	elog.WriteString(log_message)
 }
 
-// WriteWarn(warn_message string) - write warning message to error log file.
+// Write warning message to error log file.
 func (l LogSettings) WriteWarn(warn_message string) {
 	wlog, err := os.OpenFile(log_settings.File_path+log_settings.Error_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
