@@ -2,8 +2,9 @@ package ivylog
 
 import (
 	"errors"
+	"fmt"
 	"os"
-	"path/filepath"
+	//"path/filepath"
 	"time"
 )
 
@@ -31,10 +32,11 @@ func InitLog(lsettings LogSettings) error {
 	log_settings = lsettings
 
 	if log_settings.File_path == "" {
-		log_settings.File_path, err = filepath.Abs(filepath.Dir(os.Args[0]))
+		curdir, err := os.Getwd()
 		if err != nil {
 			return err
 		}
+		log_settings.File_path = curdir + "/"
 	} else {
 		if _, err := os.Stat(log_settings.File_path); os.IsNotExist(err) {
 			err = os.Mkdir(log_settings.File_path, 0755)

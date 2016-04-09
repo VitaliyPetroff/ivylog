@@ -38,5 +38,5 @@ func main() {
 
 **Result:**
 ```
-
+2016-04-10 01:16:23 WARNING: 1 is less than 2
 ```
