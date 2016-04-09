@@ -2,7 +2,7 @@
 
 Another interpretation of working with logging in golang.
 
-**Current version: 0.1.0 (Apr 09, 2016)**
+**Current version: 0.1.0 (Apr 10, 2016)**
 
 ##Quick Start
 
