@@ -1,6 +1,7 @@
 #ivylog (utility)
 
 Another interpretation of working with logging in golang.
+
 **Current version: 0.1.1 (Aug 03, 2016)**
  - Input parameter for WriteErr func was changed from error type to string type
 
