@@ -85,14 +85,14 @@ func (l LogSettings) WriteInfo(info_message string) {
 }
 
 // Write err message to error log file.
-func (l LogSettings) WriteErr(err_message error) {
+func (l LogSettings) WriteErr(err_message string) {
 	elog, err := os.OpenFile(log_settings.File_path+log_settings.Error_file_name, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
 		return
 	}
 	defer elog.Close()
 
-	log_message := setTime() + " " + "ERROR: " + err_message.Error() + "\n"
+	log_message := setTime() + " " + "ERROR: " + err_message + "\n"
 
 	elog.WriteString(log_message)
 }
